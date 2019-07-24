@@ -123,25 +123,8 @@ public class StudentList
 			try
 			 {
 				String reader = loadData(constant.studentList);
-				char array[] = reader.toCharArray();			
-				boolean in_word = false;
-				int count=0;
-				for(char Character:array)
-				{
-					if(Character ==' ') 
-					{
-						if (!in_word) 
-						{	
-							count++; in_word =true;
-						}
-						else 
-						{ 
-							in_word=false;
-						}			
-					}
-				}
-
-				System.out.println(count +" word(s) found ");
+				String input[] = reader.split(constant.StudentEntryDelimite);
+				System.out.println(input.length +" word(s) found " );
 			} 
 
 			catch (Exception e)
