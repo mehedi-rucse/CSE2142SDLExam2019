@@ -18,8 +18,7 @@ public class StudentList
 			System.out.println("Loading data ...");			
 			try
 			{
-				BufferedReader file = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt"))); 
-				String reader = file.readLine();
+				String reader = loadData("students.txt");
 				String input[] = reader.split(",");			
 				for(String output : input) 
 				{ 
@@ -41,8 +40,7 @@ public class StudentList
 
 			try 
 			{
-				BufferedReader file = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt"))); 
-				String reader = file.readLine();
+				String reader = loadData("students.txt");
 				String input[] = reader.split(",");	
 				Random random = new Random();
 				int output = random.nextInt(input.length);
@@ -87,8 +85,7 @@ public class StudentList
 
 			try 
 			{
-				BufferedReader file = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt"))); 
-				String reader = file.readLine();
+				String reader = loadData("students.txt");
 				String input[] = reader.split(",");	
 				boolean done = false;
 				String text = args[0].substring(1);
@@ -116,8 +113,7 @@ public class StudentList
 
 			try
 			 {
-				BufferedReader file = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt"))); 
-				String reader = file.readLine();
+				String reader = loadData("students.txt");
 				char array[] = reader.toCharArray();			
 				boolean in_word = false;
 				int count=0;
@@ -147,4 +143,20 @@ public class StudentList
 			System.out.println("Data Loaded.");				
 		}
 	}
+
+	public static String loadData(String filename)
+	{
+		try
+		{
+			BufferedReader fileStream = new BufferedReader(new InputStreamReader(new FileInputStream(filename))); 
+			String line = fileStream.readLine();
+			return line;
+		}
+		catch(Exception e)
+		{
+
+		}
+		return "";
+	}
+
 }
