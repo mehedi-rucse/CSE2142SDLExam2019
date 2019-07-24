@@ -134,7 +134,23 @@ public class StudentList
 
 			System.out.println(constant.dLoaded);				
 		}
+		
+		else
+		{
+			try
+			{
+				System.out.println("Invalid Arguments");
+				return;
+			}
+			catch (Exception e)
+			{
+
+			}
+		}
 	}
+
+
+	
 
 	public static String loadData(String filename)
 	{
