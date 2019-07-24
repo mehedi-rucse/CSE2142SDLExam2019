@@ -6,6 +6,8 @@ public class StudentList
 	public static void main(String[] args) 
 	{
 
+		Constants constant = new Constants();
+
 //		Check arguments
 		if(args.length == 0 || args.length > 1)
 		{
@@ -13,13 +15,13 @@ public class StudentList
 			return;
 		}
 
-		else if(args[0].equals("a"))
+		else if(args[0].equals(constant.showAll))
 		{
-			System.out.println("Loading data ...");			
+			System.out.println(constant.dLoading);			
 			try
 			{
-				String reader = loadData("students.txt");
-				String input[] = reader.split(",");			
+				String reader = loadData(constant.studentList);
+				String input[] = reader.split(constant.StudentEntryDelimite);			
 				for(String output : input) 
 				{ 
 					System.out.println(output);
@@ -31,17 +33,17 @@ public class StudentList
 
 			} 
 
-			System.out.println("Data Loaded.");
+			System.out.println(constant.dLoaded);
 		}
 
-		else if(args[0].equals("r")) 
+		else if(args[0].equals(constant.showRandom)) 
 		{
-			System.out.println("Loading data ...");
+			System.out.println(constant.dLoading);
 
 			try 
 			{
-				String reader = loadData("students.txt");
-				String input[] = reader.split(",");	
+				String reader = loadData(constant.studentList);
+				String input[] = reader.split(constant.StudentEntryDelimite);
 				Random random = new Random();
 				int output = random.nextInt(input.length);
 				System.out.println(input[output]);
@@ -52,16 +54,16 @@ public class StudentList
 
 			} 
 
-			System.out.println("Data Loaded.");			
+			System.out.println(constant.dLoaded);			
 		}
 
-		else if(args[0].contains("+"))
+		else if(args[0].contains(constant.addEntry))
 		{
-			System.out.println("Loading data ...");	
+			System.out.println(constant.dLoading);	
 
 			try
 			{
-				BufferedWriter file = new BufferedWriter(new FileWriter("students.txt", true));
+				BufferedWriter file = new BufferedWriter(new FileWriter(constant.studentList, true));
 				String text = args[0].substring(1);
 	        	Date date = new Date();
 	        	String dateform = "dd/mm/yyyy-hh:mm:ss a";
@@ -76,17 +78,17 @@ public class StudentList
 
 			}
 							
-			System.out.println("Data Loaded.");	
+			System.out.println(constant.dLoaded);	
 		}
 
-		else if(args[0].contains("?")) 
+		else if(args[0].contains(constant.findEntry)) 
 		{
-			System.out.println("Loading data ...");	
+			System.out.println(constant.dLoading);	
 
 			try 
 			{
-				String reader = loadData("students.txt");
-				String input[] = reader.split(",");	
+				String reader = loadData(constant.studentList);
+				String input[] = reader.split(constant.StudentEntryDelimite);	
 				boolean done = false;
 				String text = args[0].substring(1);
 				for(int index = 0; index<input.length && !done; index++) 
@@ -104,16 +106,16 @@ public class StudentList
 
 			}
 
-			System.out.println("Data Loaded.");				
+			System.out.println(constant.dLoaded);				
 		}
 
-		else if(args[0].contains("c")) 
+		else if(args[0].contains(constant.showCount)) 
 		{
-			System.out.println("Loading data ...");
+			System.out.println(constant.dLoading);
 
 			try
 			 {
-				String reader = loadData("students.txt");
+				String reader = loadData(constant.studentList);
 				char array[] = reader.toCharArray();			
 				boolean in_word = false;
 				int count=0;
@@ -140,7 +142,7 @@ public class StudentList
 
 			} 
 
-			System.out.println("Data Loaded.");				
+			System.out.println(constant.dLoaded);				
 		}
 	}
 
