@@ -8,12 +8,17 @@ public class StudentList
 
 		Constants constant = new Constants();
 
-//		Check arguments
+		//Check arguments
+
+		//if the arguments is not given or given string's length is greater than 1 then it will not terminate 
+
 		if(args.length == 0 || args.length > 1)
 		{
 			System.out.println("Program terminated.\nPlease Enter a valid argument");
 			return;
 		}
+
+		//if the argument is a then it will show all the student list
 
 		else if(args[0].equals(constant.showAll))
 		{
@@ -36,6 +41,8 @@ public class StudentList
 			System.out.println(constant.dLoaded);
 		}
 
+		//if the argument is r then it will show a random string from studentlist
+
 		else if(args[0].equals(constant.showRandom)) 
 		{
 			System.out.println(constant.dLoading);
@@ -56,6 +63,8 @@ public class StudentList
 
 			System.out.println(constant.dLoaded);			
 		}
+
+		//if the argument is '+' then it will add a string into the student list text file.
 
 		else if(args[0].contains(constant.addEntry))
 		{
@@ -79,6 +88,8 @@ public class StudentList
 							
 			System.out.println(constant.dLoaded);	
 		}
+
+		//if the argument is '?' then  it will search the string from studentlist.txt
 
 		else if(args[0].contains(constant.findEntry)) 
 		{
@@ -116,6 +127,8 @@ public class StudentList
 			System.out.println(constant.dLoaded);				
 		}
 
+		//if argument is 'c' then it will count total string number from the studentlist txt
+
 		else if(args[0].contains(constant.showCount)) 
 		{
 			System.out.println(constant.dLoading);
@@ -135,6 +148,8 @@ public class StudentList
 			System.out.println(constant.dLoaded);				
 		}
 		
+		//if the argument is not equal to above's then it will show Invalid arguments
+
 		else
 		{
 			try
@@ -151,6 +166,8 @@ public class StudentList
 
 
 	
+	//here we created a method called loadname where we done the file streaming part 
+	//and later used it when we needed to read file
 
 	public static String loadData(String filename)
 	{
