@@ -66,8 +66,7 @@ public class StudentList
 				BufferedWriter file = new BufferedWriter(new FileWriter(constant.studentList, true));
 				String text = args[0].substring(1);
 	        	Date date = new Date();
-	        	String dateform = "dd/mm/yyyy-hh:mm:ss a";
-	        	DateFormat dateFormat = new SimpleDateFormat(dateform);
+	        	DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy-hh:mm:ss a");
 	        	String formateOfDate= dateFormat.format(date);
 				file.write(", "+text+"\nList last updated on "+formateOfDate);
 				file.close();
