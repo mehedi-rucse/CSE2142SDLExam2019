@@ -18,12 +18,12 @@ public class StudentList
 			System.out.println("Loading data ...");			
 			try
 			{
-				BufferedReader s = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt"))); 
-				String r = s.readLine();
-				String i[] = r.split(",");			
-				for(String j : i) 
+				BufferedReader file = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt"))); 
+				String reader = file.readLine();
+				String input[] = reader.split(",");			
+				for(String output : input) 
 				{ 
-					System.out.println(j);
+					System.out.println(output);
 				}
 			}
 
@@ -41,12 +41,12 @@ public class StudentList
 
 			try 
 			{
-				BufferedReader s = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt"))); 
-				String r = s.readLine();
-				String i[] = r.split(",");	
-				Random x = new Random();
-				int y = x.nextInt(i.length);
-				System.out.println(i[y]);
+				BufferedReader file = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt"))); 
+				String reader = file.readLine();
+				String input[] = reader.split(",");	
+				Random random = new Random();
+				int output = random.nextInt(input.length);
+				System.out.println(input[output]);
 			}
 
 			catch (Exception e)
@@ -63,14 +63,14 @@ public class StudentList
 
 			try
 			{
-				BufferedWriter s = new BufferedWriter(new FileWriter("students.txt", true));
-				String t = args[0].substring(1);
-	        	Date d = new Date();
-	        	String df = "dd/mm/yyyy-hh:mm:ss a";
-	        	DateFormat dateFormat = new SimpleDateFormat(df);
-	        	String fd= dateFormat.format(d);
-				s.write(", "+t+"\nList last updated on "+fd);
-				s.close();
+				BufferedWriter file = new BufferedWriter(new FileWriter("students.txt", true));
+				String text = args[0].substring(1);
+	        	Date date = new Date();
+	        	String dateform = "dd/mm/yyyy-hh:mm:ss a";
+	        	DateFormat dateFormat = new SimpleDateFormat(dateform);
+	        	String formateOfDate= dateFormat.format(date);
+				file.write(", "+text+"\nList last updated on "+formateOfDate);
+				file.close();
 			}
 
 			catch (Exception e)
@@ -87,14 +87,14 @@ public class StudentList
 
 			try 
 			{
-				BufferedReader s = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt"))); 
-				String r = s.readLine();
-				String i[] = r.split(",");	
+				BufferedReader file = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt"))); 
+				String reader = file.readLine();
+				String input[] = reader.split(",");	
 				boolean done = false;
-				String t = args[0].substring(1);
-				for(int idx = 0; idx<i.length && !done; idx++) 
+				String text = args[0].substring(1);
+				for(int index = 0; index<input.length && !done; index++) 
 				{
-					if(i[idx].equals(t))
+					if(input[index].equals(text))
 					{
 						System.out.println("We found it!");
 						done=true;
@@ -116,14 +116,14 @@ public class StudentList
 
 			try
 			 {
-				BufferedReader s = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt"))); 
-				String D = s.readLine();
-				char a[] = D.toCharArray();			
+				BufferedReader file = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt"))); 
+				String reader = file.readLine();
+				char array[] = reader.toCharArray();			
 				boolean in_word = false;
 				int count=0;
-				for(char c:a)
+				for(char Character:array)
 				{
-					if(c ==' ') 
+					if(Character ==' ') 
 					{
 						if (!in_word) 
 						{	
