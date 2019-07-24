@@ -88,15 +88,23 @@ public class StudentList
 			{
 				String reader = loadData(constant.studentList);
 				String input[] = reader.split(constant.StudentEntryDelimite);	
-				boolean done = false;
 				String text = args[0].substring(1);
-				for(int index = 0; index<input.length && !done; index++) 
+				int index1=-1;
+				for(int index = 0; index<input.length; index++) 
 				{
 					if(input[index].equals(text))
 					{
-						System.out.println("We found it!");
-						done=true;
+						index1 = index ;
+						break;
 					}
+				}
+				if(index1 >= 0)
+				{
+					System.out.println("Entry " + text +" found in index " + index1);
+				}
+				else
+				{
+					System.out.println("Entry " + text +" does not exist ");
 				}
 			}
 
